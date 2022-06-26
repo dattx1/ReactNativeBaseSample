@@ -8,14 +8,16 @@
  * @format
  */
 
-import { HOME_NAVIGATION_KEYS, useHomeNavigation } from '@src/screens/home';
+import { useAppDispatch, useAppSelector } from '@src/redux';
+import { isLogined, login } from '@src/redux/user';
 import React from 'react';
 import { Button, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const LoginScreen = () => {
   const isDarkMode = useColorScheme() === 'dark';
-  const navigation = useHomeNavigation();
+  const isUserLogined = useAppSelector(isLogined);
+  const dispatch = useAppDispatch();
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -25,11 +27,13 @@ const LoginScreen = () => {
             color: isDarkMode ? Colors.white : Colors.black,
           },
         ]}>
-        This is Login Screen
+        {`This is Login Screen and User login status is ${isUserLogined}`}
       </Text>
       <Button
         title="Go to Details"
-        onPress={() => navigation.navigate(HOME_NAVIGATION_KEYS.HOME)}
+        onPress={() => {
+          dispatch(login());
+        }}
       />
     </View>
   );
