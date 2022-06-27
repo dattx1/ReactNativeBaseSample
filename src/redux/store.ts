@@ -4,6 +4,7 @@ import Thunk from 'redux-thunk';
 import middlewareRegistry from './middlewareRegistry';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './rootSaga';
+import StateListenerRegistry from './StateListenerRegistry';
 
 const createCustomStore = () => {
   const sagaMiddleware = createSagaMiddleware();
@@ -19,6 +20,7 @@ const createCustomStore = () => {
       ),
   });
   sagaMiddleware.run(rootSaga);
+  StateListenerRegistry.subscribe(customeStore);
   return customeStore;
 };
 

@@ -13,11 +13,13 @@ import { fetchUser, isLogined } from '@src/redux/user';
 import React from 'react';
 import { Button, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import UserInformation from '@src/screens/authentication/LoginScreen/function';
 
 const LoginScreen = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const isUserLogined = useAppSelector(isLogined);
   const dispatch = useAppDispatch();
+
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -33,6 +35,7 @@ const LoginScreen = () => {
         title="Go to Details"
         onPress={() => {
           dispatch(fetchUser({ userId: 124 }));
+          UserInformation.getStore();
         }}
       />
     </View>

@@ -1,5 +1,7 @@
+import './subscribe';
 import middlewareRegistry from '../middlewareRegistry';
-import { FETCH_USER, LOGIN } from './types/actionType';
+
+import { LOGIN } from './types/actionType';
 
 /**
  * Middleware to parse token data upon setting a new room URL.
