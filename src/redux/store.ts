@@ -2,8 +2,11 @@ import { configureStore } from '@reduxjs/toolkit';
 import userSlice from './user/slice';
 import Thunk from 'redux-thunk';
 import middlewareRegistry from './middlewareRegistry';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './rootSaga';
 
 const createCustomStore = () => {
+  const sagaMiddleware = createSagaMiddleware();
   const customeStore = configureStore({
     reducer: {
       User: userSlice.reducer,
@@ -12,9 +15,10 @@ const createCustomStore = () => {
       getDefaultMiddleware().concat(
         Thunk,
         ...middlewareRegistry.getAllMiddleware(),
+        sagaMiddleware,
       ),
   });
-
+  sagaMiddleware.run(rootSaga);
   return customeStore;
 };
 

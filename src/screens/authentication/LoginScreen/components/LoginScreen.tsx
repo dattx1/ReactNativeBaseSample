@@ -9,7 +9,7 @@
  */
 
 import { useAppDispatch, useAppSelector } from '@src/redux';
-import { isLogined, login } from '@src/redux/user';
+import { fetchUser, isLogined } from '@src/redux/user';
 import React from 'react';
 import { Button, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
@@ -32,7 +32,7 @@ const LoginScreen = () => {
       <Button
         title="Go to Details"
         onPress={() => {
-          dispatch(login());
+          dispatch(fetchUser({ userId: 124 }));
         }}
       />
     </View>
