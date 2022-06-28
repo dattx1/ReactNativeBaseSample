@@ -2,12 +2,13 @@
 
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useTranslation } from 'react-i18next';
+
 import {
   AUTHENTICATION_NAVIGATION_KEYS,
   LoginScreen,
 } from '@src/screens/authentication';
 import { HOME_NAVIGATION_KEYS, HomeScreen } from '@src/screens/home';
-import { useTranslation } from 'react-i18next';
 
 const Stack = createNativeStackNavigator();
 

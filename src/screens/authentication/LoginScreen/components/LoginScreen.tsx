@@ -8,13 +8,14 @@
  * @format
  */
 
-import { useAppDispatch, useAppSelector } from '@src/redux';
-import { fetchUser, isLogined } from '@src/redux/user';
 import React from 'react';
 import { Button, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import UserInformation from '@src/screens/authentication/LoginScreen/function';
 import { useTranslation } from 'react-i18next';
+
+import UserInformation from '@src/screens/authentication/LoginScreen/function';
+import { fetchUser, isLogined } from '@src/redux/user';
+import { useAppDispatch, useAppSelector } from '@src/redux';
 
 const LoginScreen = () => {
   const { t } = useTranslation('screens');

@@ -11,9 +11,10 @@
 import React from 'react';
 import { Button, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+
 import {
-  useAuthenticationNavigation,
   AUTHENTICATION_NAVIGATION_KEYS,
+  useAuthenticationNavigation,
 } from '@src/screens/authentication';
 
 const HomeScreen = () => {

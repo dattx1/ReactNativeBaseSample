@@ -1,9 +1,8 @@
-// @flow
+import equals from 'lodash/isEqual';
+
+import { RootState } from './store';
 
 import type { Store } from 'redux';
-
-import equals from 'lodash/isEqual';
-import { RootState } from './store';
 
 /**
  * The type listener supported for registration with
