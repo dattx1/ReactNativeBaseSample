@@ -6,8 +6,9 @@ import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Provider } from 'react-redux';
 import { store } from '@src/redux/store';
-import AppNavigator from './AppNavigator';
+import AppNavigator from './navigations/AppNavigator';
 import '@src/redux/middleware';
+import '@src/localization/i18n';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';

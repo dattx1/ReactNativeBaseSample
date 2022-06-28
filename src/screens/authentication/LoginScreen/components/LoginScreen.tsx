@@ -14,8 +14,10 @@ import React from 'react';
 import { Button, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import UserInformation from '@src/screens/authentication/LoginScreen/function';
+import { useTranslation } from 'react-i18next';
 
 const LoginScreen = () => {
+  const { t } = useTranslation('screens');
   const isDarkMode = useColorScheme() === 'dark';
   const isUserLogined = useAppSelector(isLogined);
   const dispatch = useAppDispatch();
@@ -29,7 +31,7 @@ const LoginScreen = () => {
             color: isDarkMode ? Colors.white : Colors.black,
           },
         ]}>
-        {`This is Login Screen and User login status is ${isUserLogined}`}
+        {`${t('login.title')} ${isUserLogined}`}
       </Text>
       <Button
         title="Go to Details"

@@ -1,0 +1,13 @@
+{
+    "screens":{
+        "login": {
+            "title": "Đây là trang login"
+        }
+    },
+    "navigations":{
+        "title":{
+            "login": "Đăng nhập",
+            "home": "Trang chủ"
+        }
+    }
+}
