@@ -1,1 +1,1 @@
-export { default as App } from './navigations';
+export { default as App } from './App';

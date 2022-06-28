@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   extends: '@react-native-community',
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'import'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
@@ -10,6 +10,34 @@ module.exports = {
         '@typescript-eslint/no-shadow': ['error'],
         'no-shadow': 'off',
         'no-undef': 'off',
+        'sort-imports': [
+          'error',
+          {
+            ignoreCase: true,
+            ignoreDeclarationSort: true,
+          },
+        ],
+        'import/order': [
+          'error',
+          {
+            groups: [
+              ['builtin', 'external'],
+              'internal',
+              ['sibling', 'parent'],
+              'index',
+              'object',
+              'type',
+            ],
+            pathGroups: [
+              {
+                pattern: '@src/**',
+                group: 'internal',
+              },
+            ],
+            'newlines-between': 'always',
+            warnOnUnassignedImports: true,
+          },
+        ],
       },
     },
   ],
@@ -20,6 +48,7 @@ module.exports = {
     'import/resolver': {
       typescript: {
         alwaysTryTypes: true,
+        project: './tsconfig.json',
       },
     },
   },

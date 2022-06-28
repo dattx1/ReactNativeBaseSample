@@ -1,0 +1,13 @@
+{
+    "screens":{
+        "login": {
+            "title": "This is Login Screen"
+        }
+    },
+    "navigations":{
+        "title":{
+            "login": "Login",
+            "home": "Home"
+        }
+    }
+}

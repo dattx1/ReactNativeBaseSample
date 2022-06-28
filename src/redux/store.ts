@@ -1,8 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
-import userSlice from './user/slice';
-import Thunk from 'redux-thunk';
-import middlewareRegistry from './middlewareRegistry';
 import createSagaMiddleware from 'redux-saga';
+import Thunk from 'redux-thunk';
+import { configureStore } from '@reduxjs/toolkit';
+
+import userSlice from './user/slice';
+import middlewareRegistry from './middlewareRegistry';
 import rootSaga from './rootSaga';
 import StateListenerRegistry from './StateListenerRegistry';
 
