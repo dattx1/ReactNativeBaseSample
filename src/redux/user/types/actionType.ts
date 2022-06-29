@@ -1,4 +1,4 @@
-import { REDUX_PATH } from '@src/constant';
+import { REDUX_PATH } from '@src/constants';
 
 export const LOGIN = `${REDUX_PATH}/user/login`;
 export const SET_USER_NAME = `${REDUX_PATH}/user/setUserName`;

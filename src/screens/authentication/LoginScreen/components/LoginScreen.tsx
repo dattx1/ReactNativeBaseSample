@@ -1,67 +1,36 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React from 'react';
-import { Button, StyleSheet, Text, useColorScheme, View } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { useTranslation } from 'react-i18next';
+import { Button, StyleSheet, View } from 'react-native';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-import UserInformation from '@src/screens/authentication/LoginScreen/function';
-import { fetchUser, isLogined } from '@src/redux/user';
-import { useAppDispatch, useAppSelector } from '@src/redux';
+import { ValidationInput } from '@src/components';
 
-const LoginScreen = () => {
-  const { t } = useTranslation('screens');
-  const isDarkMode = useColorScheme() === 'dark';
-  const isUserLogined = useAppSelector(isLogined);
-  const dispatch = useAppDispatch();
+import { LoginFormParameter } from '../type';
+import { loginFormSchema } from '../validation';
+
+export default function LoginScreen() {
+  const { control, handleSubmit } = useForm<LoginFormParameter>({
+    mode: 'onChange',
+    resolver: yupResolver(loginFormSchema),
+    defaultValues: {
+      userName: '',
+      password: '',
+    },
+  });
+
+  const onSubmit = (data: LoginFormParameter) => console.log(data);
 
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {`${t('login.title')} ${isUserLogined}`}
-      </Text>
-      <Button
-        title="Go to Details"
-        onPress={() => {
-          dispatch(fetchUser({ userId: 124 }));
-          UserInformation.getStore();
-        }}
-      />
+    <View>
+      <ValidationInput control={control} style={styles.input} name="userName" />
+      <ValidationInput control={control} style={styles.input} name="password" />
+      <Button title="Submit" onPress={handleSubmit(onSubmit)} />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  input: {
+    fontSize: 14,
   },
 });
-
-export default LoginScreen;

@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-import { SCREEN_PATH } from '@src/constant';
+import { SCREEN_PATH } from '@src/constants';
 
 export const AUTHENTICATION_NAVIGATION_KEYS = {
   LOGIN: `${SCREEN_PATH}/Login/components/LoginScreen`,

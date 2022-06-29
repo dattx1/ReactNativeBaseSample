@@ -9,5 +9,8 @@
             "login": "Đăng nhập",
             "home": "Trang chủ"
         }
+    },
+    "validation":{
+        "password_format_invalid":"Định dạng mật khẩu không chính xác. Vui lòng thử lại."
     }
 }
