@@ -18,6 +18,7 @@ function App() {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
     flex: 1,
   };
+  console.log("🚀 ~ file: App.tsx ~ line 21 ~ App ~ backgroundStyle", backgroundStyle)
 
   return (
     <Provider store={store}>

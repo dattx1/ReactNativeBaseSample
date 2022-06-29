@@ -9,5 +9,8 @@
             "login": "Login",
             "home": "Home"
         }
+    },
+    "validation":{
+        "password_format_invalid":"The password format is incorrect. Please try again."
     }
 }
