@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { UserState } from './types';
-import { LOGIN, SET_USER_NAME } from './types/actionType';
+import { UserState, UserType } from '@src/types';
+
+import { LOGIN, SET_CURRENT_USER } from './actionType';
 
 const initialState: UserState = {
   isLogined: false,
-  userName: '',
 };
 
 export const userSlice = createSlice({
@@ -15,8 +15,8 @@ export const userSlice = createSlice({
     [LOGIN]: state => {
       state.isLogined = true;
     },
-    [SET_USER_NAME]: (state, action: PayloadAction<string>) => {
-      state.userName += action.payload;
+    [SET_CURRENT_USER]: (state, action: PayloadAction<UserType>) => {
+      state.currentUser = action.payload;
     },
   },
   reducers: {},

@@ -1,4 +1,5 @@
 export * from './path';
 export * from './validation';
 export * from './component';
-export * from './Platform';
+export * from './platform';
+export * from './apiPath';

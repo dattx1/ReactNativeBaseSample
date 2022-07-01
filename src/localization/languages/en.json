@@ -11,6 +11,7 @@
         }
     },
     "validation":{
-        "password_format_invalid":"The password format is incorrect. Please try again."
+        "password_format_invalid":"The password format is incorrect. Please try again.",
+        "no_internet_connection": "No Internet connection"
     }
 }

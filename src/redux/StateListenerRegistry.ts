@@ -117,12 +117,7 @@ class StateListenerRegistry {
           prevSelections.set(selectorListener, selection);
           selectorListener.listener(selection, store, prevSelection);
         }
-      } catch (e) {
-        console.log(
-          '🚀 ~ file: StateListenerRegistry.ts ~ line 123 ~ StateListenerRegistry ~ e',
-          e,
-        );
-      }
+      } catch (e) {}
     }
   }
 

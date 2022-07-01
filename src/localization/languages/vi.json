@@ -11,6 +11,7 @@
         }
     },
     "validation":{
-        "password_format_invalid":"Định dạng mật khẩu không chính xác. Vui lòng thử lại."
+        "password_format_invalid":"Định dạng mật khẩu không chính xác. Vui lòng thử lại.",
+        "no_internet_connection": "không có kết nối Internet"
     }
 }
