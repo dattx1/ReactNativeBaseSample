@@ -9,7 +9,7 @@ import { LoginFormParameter } from '../type';
 import { loginFormSchema } from '../validation';
 
 export default function LoginScreen() {
-  const { control, handleSubmit } = useForm<LoginFormParameter>({
+  const { control, getValues } = useForm<LoginFormParameter>({
     mode: 'onChange',
     resolver: yupResolver(loginFormSchema),
     defaultValues: {
@@ -17,14 +17,19 @@ export default function LoginScreen() {
       password: '',
     },
   });
-
-  const onSubmit = (data: LoginFormParameter) => console.log(data);
+  const onSubmit = () => {
+    const { userName, password } = getValues();
+    console.log(
+      '🚀 ~ file: LoginScreen.tsx ~ line 23 ~ onSubmit ~ { userName, password }',
+      { userName, password },
+    );
+  };
 
   return (
     <View>
       <ValidationInput control={control} style={styles.input} name="userName" />
       <ValidationInput control={control} style={styles.input} name="password" />
-      <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+      <Button title="Submit" onPress={onSubmit} />
     </View>
   );
 }
