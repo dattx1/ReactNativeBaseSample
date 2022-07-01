@@ -4,12 +4,20 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { ValidationInput } from '@src/components';
+import { useAppDispatch, useAppSelector } from '@src/redux';
+import { currentUserSelector, fetchUser } from '@src/redux/user';
 
 import { LoginFormParameter } from '../type';
 import { loginFormSchema } from '../validation';
 
 export default function LoginScreen() {
-  const { control, getValues } = useForm<LoginFormParameter>({
+  const dispatch = useAppDispatch();
+  const currentUser = useAppSelector(currentUserSelector);
+  console.log(
+    '🚀 ~ file: LoginScreen.tsx ~ line 16 ~ LoginScreen ~ currentUser',
+    currentUser,
+  );
+  const { control } = useForm<LoginFormParameter>({
     mode: 'onChange',
     resolver: yupResolver(loginFormSchema),
     defaultValues: {
@@ -17,11 +25,12 @@ export default function LoginScreen() {
       password: '',
     },
   });
+
   const onSubmit = () => {
-    const { userName, password } = getValues();
-    console.log(
-      '🚀 ~ file: LoginScreen.tsx ~ line 23 ~ onSubmit ~ { userName, password }',
-      { userName, password },
+    dispatch(
+      fetchUser({
+        userId: '1',
+      }),
     );
   };
 

@@ -1,5 +1,5 @@
 import './subscribe';
-import { LOGIN } from './types/actionType';
+import { LOGIN } from './actionType';
 import middlewareRegistry from '../middlewareRegistry';
 
 /**
@@ -9,10 +9,9 @@ import middlewareRegistry from '../middlewareRegistry';
  * @private
  * @returns {Function}
  */
-middlewareRegistry.register(store => next => action => {
+middlewareRegistry.register(_store => next => action => {
   switch (action.type) {
     case LOGIN:
-      console.log('🚀 ~ file: middleware.ts ~ line 12 ~ store', store);
       break;
   }
 

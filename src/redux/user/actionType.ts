@@ -1,7 +1,7 @@
 import { REDUX_PATH } from '@src/constants';
 
 export const LOGIN = `${REDUX_PATH}/user/login`;
-export const SET_USER_NAME = `${REDUX_PATH}/user/setUserName`;
+export const SET_CURRENT_USER = `${REDUX_PATH}/user/setCurrentUser`;
 export const FETCH_USER = `${REDUX_PATH}/user/fetchUser`;
 
 export type FetchUserAction = {
@@ -10,5 +10,5 @@ export type FetchUserAction = {
 };
 
 export type FetchUserParameter = {
-  userId: number;
+  userId: string;
 };
