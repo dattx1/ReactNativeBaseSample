@@ -6,11 +6,13 @@ import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Provider } from 'react-redux';
 
-import { store } from '@src/redux/store';
+import { persistor, store } from '@src/redux/store';
 import '@src/redux/middleware';
 import '@src/localization/i18n';
 
 import AppNavigator from './navigations/AppNavigator';
+
+import { PersistGate } from 'redux-persist/integration/react';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -21,12 +23,14 @@ function App() {
 
   return (
     <Provider store={store}>
-      <NavigationContainer>
+      <PersistGate loading={null} persistor={persistor}>
         <SafeAreaView style={backgroundStyle}>
           <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-          <AppNavigator />
+          <NavigationContainer>
+            <AppNavigator />
+          </NavigationContainer>
         </SafeAreaView>
-      </NavigationContainer>
+      </PersistGate>
     </Provider>
   );
 }
