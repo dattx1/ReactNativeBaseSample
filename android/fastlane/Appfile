@@ -1,0 +1,2 @@
+json_key_file("/Users/nals_macbook_148/Desktop/Dattx/key_store") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
+package_name("dat.learning.fastlance.app") # e.g. com.krausefx.app
